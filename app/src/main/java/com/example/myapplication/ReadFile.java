@@ -5,6 +5,7 @@ package com.example.myapplication;
         import java.io.File;
         import java.io.FileReader;
         import java.io.IOException;
+        import java.util.ArrayList;
 
         import org.json.JSONArray;
         import org.json.JSONException;
@@ -45,6 +46,23 @@ public class ReadFile {
             }
         }
         return (JSONObject)j.get(0);
+    }
+
+
+
+    public ArrayList<String> getFoodList() throws JSONException {
+        ArrayList<String> list = new ArrayList<String>();
+
+        JSONArray j = (JSONArray)a.get(0);
+        for(int i = 0; i < a.length(); i++)
+        {
+            for(int k = 0; k < ((JSONArray) a.get(i)).length();k++)
+            {
+                j = (JSONArray) a.get(i);
+                list.add(((JSONObject)(j.get(k))).getString("description"));
+            }
+        }
+        return list;
     }
 
     public String getName(Object obj) throws JSONException {

@@ -24,5 +24,7 @@ public class Test {
         System.out.println(r.getProtein((r.getFood(str2))));
         System.out.println(r.getFat((r.getFood(str2))));
         System.out.println(r.getCalories((r.getFood(str2))));
+
+        System.out.println(r.getFoodList().get(0).toString());
     }
 }
